@@ -74,8 +74,10 @@ object Scheme {
   def main(args: Array[String]) {
     var global_env = new Env(List("+", "-", "*", "/"), List(SchemeFunc2((_:Int) + (_:Int)), SchemeFunc2((_:Int) - (_:Int)), SchemeFunc2((_:Int) * (_:Int)), SchemeFunc2((_:Int) / (_:Int))     ))
     var s = new SchemeInterpreter()
+    print("> ")
     for( ln <- io.Source.stdin.getLines ) {
       println( s.run(ln.trim, global_env) )
+      print("> ")
     }
   }
 }
